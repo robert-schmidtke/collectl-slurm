@@ -93,7 +93,6 @@ function stopCollectlAndSaveLogs() {
   return 0
 }
 
-# unmounts the volume, deletes the volumes and stops and deletes the XtreemFS farm setup
 function stop() {
 
   initializeEnvironment

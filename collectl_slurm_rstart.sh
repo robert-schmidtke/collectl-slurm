@@ -43,7 +43,7 @@ function startCollectl() {
   outputDebug -n "Starting collectl $COLLECTL_NAME on $(hostname) ..."
   collectl -scdn -f $CURRENT_LOCAL_FOLDER/ 2>&1 &
   PROCPID="$!"
-  echo "$PROCPID" > "$CURRENT_LOCAL_FOLDER/COLLECTL_PID"
+  echo "$PROCPID" > "$CURRENT_LOCAL_FOLDER/$COLLECTL_PID"
   sleep 1s
   
   if [[ -e "/proc/$PROCPID" ]]; then
