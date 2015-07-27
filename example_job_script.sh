@@ -24,4 +24,4 @@ srun hostname
 #                                           #
 #############################################
 
-$HOME/collectl-slurm/collectl_slurm.sh stop
+$HOME/collectl-slurm/collectl_slurm.sh stop -savelogs
