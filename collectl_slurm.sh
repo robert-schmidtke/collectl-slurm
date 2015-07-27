@@ -125,7 +125,7 @@ function outputSummary() {
     echo "collectl-${collectl_hostname} HOST: $collectl_hostname"
   done
 
-  echo "JOB ENV FILE: $(substitudeJobID $CURRENT_JOB_ENV_FILE_GENERIC)"
+  echo "JOB ENV FILE: $(substituteJobID $CURRENT_JOB_ENV_FILE_GENERIC)"
 
   return 0
 }
