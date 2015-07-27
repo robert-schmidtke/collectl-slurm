@@ -81,7 +81,7 @@ function stopCollectl() {
   return 0
 }
 
-stopServer
+stopCollectl
 RESULT=$?
 
 if [[ ! -z "$SAVE_LOG" ]] && [[ "$SAVE_LOG" == "-savelogs" ]]; then
