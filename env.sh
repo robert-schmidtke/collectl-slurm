@@ -21,7 +21,6 @@ __DEBUG=true
 LOCAL_PATH="/local/$USER/collectl"
 
 JOB_ID=$SLURM_JOB_ID # default the current ID
-NUMBER_OF_NODES=$SLURM_JOB_NUM_NODES # Number of nodes in current job
 COLLECTL_NODE_NAMES=`scontrol show hostnames` # flat list of node names seperated with space
 
 ####
@@ -29,7 +28,6 @@ COLLECTL_NODE_NAMES=`scontrol show hostnames` # flat list of node names seperate
 ####
 
 CURRENT_JOB_FOLDER_GENERIC="$(pwd)/slurm-%JOBID%"
-CURRENT_JOB_ENV_FILE_GENERIC="$CURRENT_JOB_FOLDER_GENERIC/job_env.sh"
 LOCAL_DIR_GENERIC="$LOCAL_PATH/%JOBID%"
 
 LOG_FILENAME_GENERIC="%NAME%.log"

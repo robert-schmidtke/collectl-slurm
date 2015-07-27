@@ -14,9 +14,6 @@ $HOME/collectl-slurm/collectl_slurm.sh start
 # Wait for collectl to set up
 sleep 10s
 
-# The path to the job_env.sh has to be equal to the path specified in the env.sh
-source $(pwd)/slurm-$SLURM_JOB_ID/job_env.sh
-
 # Example commands (should be removed)
 srun hostname
 
