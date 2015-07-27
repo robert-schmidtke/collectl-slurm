@@ -41,7 +41,7 @@ function startCollectl() {
   mkdir -p $CURRENT_LOCAL_FOLDER
   
   outputDebug -n "Starting collectl $COLLECTL_NAME on $(hostname) ..."
-  collectl -F1 -i5:5 -scdn -f $CURRENT_LOCAL_FOLDER/ 2>&1 &
+  collectl -scdn -f $CURRENT_LOCAL_FOLDER/ 2>&1 &
   PROCPID="$!"
   echo "$PROCPID" > "$CURRENT_LOCAL_FOLDER/COLLECTL_PID"
   sleep 1s
