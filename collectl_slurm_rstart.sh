@@ -44,7 +44,7 @@ function startCollectl() {
   # Collect data for (C)PU, (D)isk, (N)etwork; plotting friendly output;
   # flush buffers every 5 seconds; save to local folder;
   # don't die when this script exits; no compression.
-  collectl --subsys cdn --plot --flush 5 --filename $CURRENT_LOCAL_FOLDER/ --nohup --options z 2>&1 &
+  collectl --subsys cdn --plot --flush 5 --filename $CURRENT_LOCAL_FOLDER/ --nohup --options z > /dev/null 2&>1 &
   PROCPID="$!"
   echo "$PROCPID" > "$CURRENT_LOCAL_FOLDER/$COLLECTL_PID"
   sleep 1s

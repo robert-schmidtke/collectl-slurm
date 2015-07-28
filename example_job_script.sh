@@ -4,7 +4,7 @@
 # Change the path of the output logfile
 
 #SBATCH -J collectl_example_script
-#SBATCH -N 1
+#SBATCH -N 5
 #SBATCH -p CSR
 #SBATCH -A csr
 #SBATCH --exclusive
