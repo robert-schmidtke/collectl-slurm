@@ -61,7 +61,6 @@ function stopCollectl() {
   if [[ -f "$CURRENT_LOCAL_FOLDER/$COLLECTL_PID" ]]; then
     outputDebug -n "Stopping collectl Process: ${COLLECTL_PID%.*} ..."
     
-    
     result=0
     if [[ -e "/proc/$(<"$CURRENT_LOCAL_FOLDER/$COLLECTL_PID")" ]]; then
       kill $(<"$CURRENT_LOCAL_FOLDER/$COLLECTL_PID")
