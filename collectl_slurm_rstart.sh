@@ -40,7 +40,7 @@ function startCollectl() {
   CURRENT_LOCAL_FOLDER=$(substituteJobID "$LOCAL_DIR_GENERIC")
   mkdir -p $CURRENT_LOCAL_FOLDER
   
-  outputDebug -n "Starting collectl $COLLECTL_NAME on $(hostname) ..."
+  outputDebug -n "Starting collectl $COLLECTL_NAME on $(hostname) ... "
   # Collect data for (C)PU, (D)isk, (N)etwork; plotting friendly output;
   # flush buffers every 5 seconds; save to local folder;
   # don't die when this script exits.
@@ -50,7 +50,7 @@ function startCollectl() {
   sleep 1s
   
   if [[ -e "/proc/$PROCPID" ]]; then
-   outputDebug "success"
+   outputDebug "success ($PROCPID)"
   else
    outputDebug "failed"
    return 1

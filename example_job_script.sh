@@ -4,8 +4,7 @@
 # Change the path of the output logfile
 
 #SBATCH -J collectl_example_script
-#SBATCH -N 3
-#SBATCH -w cumu-n[00-02]
+#SBATCH -N 1
 #SBATCH -p CSR
 #SBATCH -A csr
 #SBATCH --exclusive
@@ -17,6 +16,8 @@ sleep 10s
 
 # Example commands (should be removed)
 srun hostname
+
+sleep 10s
 
 #############################################
 #                                           #

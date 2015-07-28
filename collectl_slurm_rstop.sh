@@ -59,12 +59,14 @@ function stopCollectl() {
   COLLECTL_PID=$(substituteName "$PID_FILENAME_GENERIC" "$COLLECTL_NAME") 
 
   if [[ -f "$CURRENT_LOCAL_FOLDER/$COLLECTL_PID" ]]; then
-    outputDebug -n "Stopping collectl Process: ${COLLECTL_PID%.*} ..."
+    outputDebug -n "Stopping collectl Process: ${COLLECTL_PID%.*} ... "
     
     result=0
     if [[ -e "/proc/$(<"$CURRENT_LOCAL_FOLDER/$COLLECTL_PID")" ]]; then
-      kill $(<"$CURRENT_LOCAL_FOLDER/$COLLECTL_PID")
+      kill -2 $(<"$CURRENT_LOCAL_FOLDER/$COLLECTL_PID")
       result=$?
+    else
+      outputDebug -n "$(<"$CURRENT_LOCAL_FOLDER/$COLLECTL_PID") not running ... "
     fi
     
     if [[ "$result" -eq 0 ]]; then
