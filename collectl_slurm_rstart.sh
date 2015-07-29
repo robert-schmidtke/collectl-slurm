@@ -35,6 +35,7 @@ source $SOURCE_FILE
 function startCollectl() {
   
   COLLECTL_PID=$(substituteName "$PID_FILENAME_GENERIC" "$COLLECTL_NAME") 
+  COLLECTL_LOG=$(substituteName "$LOG_FILENAME_GENERIC" "$COLLECTL_NAME")
   
   CURRENT_JOB_FOLDER=$(substituteJobID "$CURRENT_JOB_FOLDER_GENERIC")
   CURRENT_LOCAL_FOLDER=$(substituteJobID "$LOCAL_DIR_GENERIC")
@@ -44,7 +45,7 @@ function startCollectl() {
   # Collect summary and detail data for (C)PU, (D)isk, (M)emory (N)etwork;
   # plotting friendly output; flush buffers every 5 seconds; save to local folder;
   # don't die when this script exits.
-  collectl --subsys cCdDmMnN --plot --flush 5 --filename $CURRENT_LOCAL_FOLDER/ --nohup > /dev/null 2&>1 &
+  collectl --subsys cCdDmMnN --plot --flush 5 --filename $CURRENT_LOCAL_FOLDER/ --nohup > $CURRENT_LOCAL_FOLDER/$COLLECTL_LOG 2>&1 &
   PROCPID="$!"
   echo "$PROCPID" > "$CURRENT_LOCAL_FOLDER/$COLLECTL_PID"
   sleep 1s

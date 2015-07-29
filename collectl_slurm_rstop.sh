@@ -39,8 +39,9 @@ CURRENT_LOCAL_FOLDER=$(substituteJobID "$LOCAL_DIR_GENERIC")
 function saveLogs() {
 
   CURRENT_JOB_FOLDER=$(substituteJobID "$CURRENT_JOB_FOLDER_GENERIC")
-  COLLECTL_LOG_NAMES=`ls $CURRENT_LOCAL_FOLDER/$(hostname)-*`
-  COLLECTL_LOGS=($COLLECTL_LOG_NAMES)
+  COLLECTL_LOG=$(substituteName "$LOG_FILENAME_GENERIC" "$COLLECTL_NAME")
+  COLLECTL_LOG_NAMES=`ls $CURRENT_LOCAL_FOLDER/$(hostname)-*.gz`
+  COLLECTL_LOGS=($COLLECTL_LOG_NAMES $CURRENT_LOCAL_FOLDER/$COLLECTL_LOG)
 
   # if server log exists, create backup folder (if not exists) and copy log
   for collectl_log in "${COLLECTL_LOGS[@]}"; do
