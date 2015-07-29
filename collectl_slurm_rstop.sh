@@ -46,7 +46,7 @@ function saveLogs() {
   for collectl_log in "${COLLECTL_LOGS[@]}"; do
     if [[ -f "$collectl_log" ]]; then
       mkdir -p "$CURRENT_JOB_FOLDER/savedLogs"
-      cp "collectl_log" "$CURRENT_JOB_FOLDER/savedLogs/"
+      cp "$collectl_log" "$CURRENT_JOB_FOLDER/savedLogs/"
     else
       echo "Couldn't save log file ($collectl_log), because it doesn't exist!"
       return 1
