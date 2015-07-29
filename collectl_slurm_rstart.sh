@@ -41,10 +41,10 @@ function startCollectl() {
   mkdir -p $CURRENT_LOCAL_FOLDER
   
   outputDebug -n "Starting collectl $COLLECTL_NAME on $(hostname) ... "
-  # Collect detail data for (C)PU, (D)isk, (M)emory (N)etwork; plotting friendly output;
-  # flush buffers every 5 seconds; save to local folder;
+  # Collect summary and detail data for (C)PU, (D)isk, (M)emory (N)etwork;
+  # plotting friendly output; flush buffers every 5 seconds; save to local folder;
   # don't die when this script exits.
-  collectl --subsys CDMN --plot --flush 5 --filename $CURRENT_LOCAL_FOLDER/ --nohup > /dev/null 2&>1 &
+  collectl --subsys cCdDmMnN --plot --flush 5 --filename $CURRENT_LOCAL_FOLDER/ --nohup > /dev/null 2&>1 &
   PROCPID="$!"
   echo "$PROCPID" > "$CURRENT_LOCAL_FOLDER/$COLLECTL_PID"
   sleep 1s
