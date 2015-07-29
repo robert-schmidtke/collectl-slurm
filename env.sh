@@ -16,8 +16,12 @@
  ##  System settings
 ####
 
+# Used for enabling/disabling debug output (see function below)
 __DEBUG=true
 
+# Path that is local to each slurm node;
+# will be created, so it needs to be accessible
+# by the user running this script
 LOCAL_PATH="/local/$USER/collectl"
 
 # Leave empty if the system default is to be used
@@ -30,7 +34,12 @@ COLLECTL_NODE_NAMES=`scontrol show hostnames` # flat list of node names seperate
  ##  Generic name and path settings
 ####
 
+# Path where the results will be saved to,
+# typically a shared network drive/folder;
+# will be created, so it needs to be accessible
+# by the user running this script
 CURRENT_JOB_FOLDER_GENERIC="$(pwd)/slurm-%JOBID%"
+
 LOCAL_DIR_GENERIC="$LOCAL_PATH/%JOBID%"
 
 LOG_FILENAME_GENERIC="%NAME%.log"
