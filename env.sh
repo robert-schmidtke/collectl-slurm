@@ -20,6 +20,9 @@ __DEBUG=true
 
 LOCAL_PATH="/local/$USER/collectl"
 
+# Leave empty if the system default is to be used
+COLLECTL_HOME="~/collectl-4.0.2"
+
 JOB_ID=$SLURM_JOB_ID # default the current ID
 COLLECTL_NODE_NAMES=`scontrol show hostnames` # flat list of node names seperated with space
 

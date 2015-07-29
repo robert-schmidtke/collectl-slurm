@@ -45,7 +45,7 @@ function startCollectl() {
   # Collect summary and detail data for (C)PU, (D)isk, (M)emory (N)etwork;
   # plotting friendly output; flush buffers every 5 seconds; save to local folder;
   # don't die when this script exits.
-  collectl --subsys cCdDmMnN --plot --flush 5 --filename $CURRENT_LOCAL_FOLDER/ --nohup > $CURRENT_LOCAL_FOLDER/$COLLECTL_LOG 2>&1 &
+  PATH="$COLLECTL_HOME:$PATH" collectl --subsys cCdDmMnN --plot --flush 5 --filename $CURRENT_LOCAL_FOLDER/ --nohup > $CURRENT_LOCAL_FOLDER/$COLLECTL_LOG 2>&1 &
   PROCPID="$!"
   echo "$PROCPID" > "$CURRENT_LOCAL_FOLDER/$COLLECTL_PID"
   sleep 1s
