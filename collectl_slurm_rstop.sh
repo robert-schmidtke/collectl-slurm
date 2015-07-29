@@ -39,16 +39,19 @@ CURRENT_LOCAL_FOLDER=$(substituteJobID "$LOCAL_DIR_GENERIC")
 function saveLogs() {
 
   CURRENT_JOB_FOLDER=$(substituteJobID "$CURRENT_JOB_FOLDER_GENERIC")
-  COLLECTL_LOG=`ls $CURRENT_LOCAL_FOLDER/$(hostname)-*`
+  COLLECTL_LOG_NAMES=`ls $CURRENT_LOCAL_FOLDER/$(hostname)-*`
+  COLLECTL_LOGS=($COLLECTL_LOG_NAMES)
 
   # if server log exists, create backup folder (if not exists) and copy log
-  if [[ -f "$COLLECTL_LOG" ]]; then
-    mkdir -p "$CURRENT_JOB_FOLDER/savedLogs"
-    cp "$COLLECTL_LOG" "$CURRENT_JOB_FOLDER/savedLogs/"
-  else
-    echo "Couldn't save log file ($COLLECTL_LOG), because it doesn't exist!"
-    return 1
-  fi
+  for collectl_log in "${COLLECTL_LOGS[@]}"; do
+    if [[ -f "$collectl_log" ]]; then
+      mkdir -p "$CURRENT_JOB_FOLDER/savedLogs"
+      cp "collectl_log" "$CURRENT_JOB_FOLDER/savedLogs/"
+    else
+      echo "Couldn't save log file ($collectl_log), because it doesn't exist!"
+      return 1
+    fi
+  done
   
   return 0
 }

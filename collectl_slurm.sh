@@ -103,7 +103,6 @@ function stop() {
   return 0
 }
 
-
 # starts the collectl tool setup
 function start() {
 
